@@ -1,6 +1,6 @@
 // import 'react-native-gesture-handler';
 import * as React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Linking} from 'react-native';
 // import {NavigationContainer} from '@react-navigation/native';
 // import AppNavigation from './src/Navigation/AppNavigation';
 // import {StatusBar} from 'react-native';
@@ -9,7 +9,7 @@ import {View, Text} from 'react-native';
 // if (__DEV__) {
 //   import('./ReactotronConfig').then(() => console.log('Reactotron Configured'));
 // }
-// import PushNotificationIOS from '@react-native-community/push-notification-ios';
+import PushNotificationIOS from '@react-native-community/push-notification-ios';
 // import PushNotification from 'react-native-push-notification';
 // import Firebase from '@react-native-firebase/app';
 // import reactotron from 'reactotron-react-native';
@@ -52,6 +52,7 @@ export default class App extends React.Component {
 
     //Listen background hander
     messaging().setBackgroundMessageHandler(async remoteMessage => {
+      console.log('thaiiiiiiiigggg', remoteMessage);
       if (Platform.OS == 'android') {
         PushNotification.localNotification({
           channelId: 'channel-id',
